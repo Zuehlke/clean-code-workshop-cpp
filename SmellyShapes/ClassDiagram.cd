@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Circle" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAACAgAAAAAEAAABAAgAAgAAACACABggGAIAAA=</HashCode>
+      <FileName>include\Circle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Color" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAAFAQAAAEAAAAAAAAABAAAAQAAQAIAABgAAQACA=</HashCode>
+      <FileName>include\Color.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComplexShape" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>include\ComplexShape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DrawingBoard" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAIAAAAAgAAAAAAgAAAQAAIAEAAA=</HashCode>
+      <FileName>include\DrawingBoard.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rectangle" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wBAAAAACAAAAAAQAQAAABAAAAAAgQACAAABgAGAAAAQ=</HashCode>
+      <FileName>include\Rectangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shape" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAEAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAgBAAAAAA=</HashCode>
+      <FileName>include\Shape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShapeGroup" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAACAIAAAAAAIBAAAAAAAAAAAAACDAA=</HashCode>
+      <FileName>include\ShapeGroup.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleShape" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAQAAAAAAAAAA=</HashCode>
+      <FileName>include\SimpleShape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Square" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAEAAAAAABAAAAAAAAAAAAgAAAAADA=</HashCode>
+      <FileName>include\Square.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
