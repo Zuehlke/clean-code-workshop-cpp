@@ -42,15 +42,20 @@ void ShapeGroup::addToShapes(Shape *shape)
 {
   if (capacityExceeded())
   {
-    std::vector<Shape *> newShapes(size + 1 + CAPACITY_INCREMENT);
-    for (int i = 0; i < size; ++i)
-    {
-      newShapes[i] = shapes[i];
-    }
-    shapes = newShapes;
+    increaseCapacity();
   }
 
   shapes[size++] = shape;
+}
+
+void ShapeGroup::increaseCapacity()
+{
+  std::vector<Shape *> newShapes(size + 1 + CAPACITY_INCREMENT);
+  for (int i = 0; i < size; ++i)
+  {
+    newShapes[i] = shapes[i];
+  }
+  shapes = newShapes;
 }
 
 bool ShapeGroup::capacityExceeded() const { return size + 1 > shapes.size(); }
