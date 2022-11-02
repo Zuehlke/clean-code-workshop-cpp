@@ -40,10 +40,9 @@ void ShapeGroup::add(Shape *shape)
 
 void ShapeGroup::addToShapes(Shape *shape)
 {
-  size_t newSize = size + 1;
-  if (newSize > shapes.size())
+  if (size + 1 > shapes.size())
   {
-    std::vector<Shape *> newShapes(newSize + CAPACITY_INCREMENT);
+    std::vector<Shape *> newShapes(size + 1 + CAPACITY_INCREMENT);
     for (int i = 0; i < size; ++i)
     {
       newShapes[i] = shapes[i];
