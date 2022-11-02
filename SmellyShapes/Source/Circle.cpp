@@ -44,7 +44,14 @@ int Circle::countContainingPoints(int *xCoords, int *yCoords, int size)
   numberOfContainingPoints = 0;
   for (int i = 0; i < size; ++i)
   {
-    contains(xCoords[i], yCoords[i]);
+    const auto deltaX = xCoords[i] - x;
+    const auto deltaY = yCoords[i] - y;
+    const auto squaredDistance = squared(deltaX) + squared(deltaY);
+    bool result1 = squaredDistance <= squared(radius);
+    if (result1 == true)
+    {
+      numberOfContainingPoints++;
+    }
   }
 
   return numberOfContainingPoints;
