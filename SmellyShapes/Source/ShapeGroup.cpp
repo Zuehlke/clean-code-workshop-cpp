@@ -35,6 +35,11 @@ void ShapeGroup::add(Shape *shape)
   if (readOnly || contains(shape))
     return;
 
+  addToShapes(shape);
+}
+
+void ShapeGroup::addToShapes(Shape *shape)
+{
   size_t newSize = size + 1;
   if (newSize > shapes.size())
   {
