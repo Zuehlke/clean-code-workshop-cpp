@@ -20,7 +20,8 @@ Circle::~Circle()
 
 bool Circle::contains(int x, int y)
 {
-  bool result = (x - this->x) * (x - this->x) + (y - this->y) * (y - this->y) <= this->radius * this->radius;
+  const auto deltaX = x - this->x;
+  bool result = deltaX * deltaX + (y - this->y) * (y - this->y) <= this->radius * this->radius;
   if (result == true)
   {
     numberOfContainingPoints++;
