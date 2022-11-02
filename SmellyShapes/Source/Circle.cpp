@@ -5,6 +5,14 @@
 
 using namespace std;
 
+namespace
+{
+int squared(const int i)
+{
+  return i * i;
+}
+} // namespace
+
 Circle::Circle(int x, int y, int radius)
     : x(x)
     , y(y)
@@ -22,7 +30,7 @@ bool Circle::contains(int x, int y)
 {
   const auto deltaX = x - this->x;
   const auto deltaY = y - this->y;
-  bool result = deltaX * deltaX + deltaY * deltaY <= this->radius * this->radius;
+  bool result = squared(deltaX) + deltaY * deltaY <= this->radius * this->radius;
   if (result == true)
   {
     numberOfContainingPoints++;
