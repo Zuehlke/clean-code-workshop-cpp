@@ -57,7 +57,6 @@ string Color::getColorAsHex() const
 
 int Color::convertTextValueToRGBAndHex()
 {
-  // set to Red
   if (colorAsText == RED)
   {
     colorAsRGB_Red = "255";
@@ -67,7 +66,6 @@ int Color::convertTextValueToRGBAndHex()
   }
   else if (colorAsText == BLUE)
   {
-    // set to Blue
     colorAsRGB_Red = "0";
     colorAsRGB_Blue = "255";
     colorAsRGB_Green = "0";
@@ -75,7 +73,6 @@ int Color::convertTextValueToRGBAndHex()
   }
   else if (colorAsText == GREEN)
   {
-    // set to Green
     colorAsRGB_Red = "0";
     colorAsRGB_Blue = "0";
     colorAsRGB_Green = "255";
