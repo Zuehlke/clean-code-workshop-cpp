@@ -32,25 +32,25 @@ ShapeGroup::~ShapeGroup()
 
 void ShapeGroup::add(Shape *shape)
 {
-  if (!readOnly)
-  {
-    size_t newSize = size + 1;
-    if (newSize > shapes.size())
-    {
-      std::vector<Shape *> newShapes(newSize + CAPACITY_INCREMENT);
-      for (int i = 0; i < size; ++i)
-      {
-        newShapes[i] = shapes[i];
-      }
-      shapes = newShapes;
-    }
+  if (readOnly)
+    return;
 
-    if (contains(shape))
+  size_t newSize = size + 1;
+  if (newSize > shapes.size())
+  {
+    std::vector<Shape *> newShapes(newSize + CAPACITY_INCREMENT);
+    for (int i = 0; i < size; ++i)
     {
-      return;
+      newShapes[i] = shapes[i];
     }
-    shapes[size++] = shape;
+    shapes = newShapes;
   }
+
+  if (contains(shape))
+  {
+    return;
+  }
+  shapes[size++] = shape;
 }
 
 bool ShapeGroup::contains(void *element)
