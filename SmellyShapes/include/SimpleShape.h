@@ -4,6 +4,6 @@
 class SimpleShape : public Shape
 {
 public:
-	SimpleShape() {}
-	virtual ~SimpleShape() {}
+  SimpleShape() {}
+  virtual ~SimpleShape() {}
 };

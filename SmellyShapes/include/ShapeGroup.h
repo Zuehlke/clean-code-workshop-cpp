@@ -1,27 +1,24 @@
 #pragma once
 #include "ComplexShape.h"
-#include <vector>
 #include <memory>
+#include <vector>
 
-class ShapeGroup : 	public ComplexShape
+class ShapeGroup : public ComplexShape
 {
 public:
-	
-	ShapeGroup();
-	ShapeGroup(const ShapeGroup&);
-	ShapeGroup(std::vector<Shape*>& shapes, bool readOnly);
-	virtual ~ShapeGroup();
-	
-	void add(Shape* shape);
-	bool contains(void* element);
-	virtual bool contains(int x, int y) override;
-	void setReadOnly(bool readOnly);
+  ShapeGroup();
+  ShapeGroup(const ShapeGroup &);
+  ShapeGroup(std::vector<Shape *> &shapes, bool readOnly);
+  virtual ~ShapeGroup();
 
-	std::vector<Shape*> shapes; 
-	int size;
+  void add(Shape *shape);
+  bool contains(void *element);
+  virtual bool contains(int x, int y) override;
+  void setReadOnly(bool readOnly);
+
+  std::vector<Shape *> shapes;
+  int size;
 
 private:
-
-	bool readOnly;
+  bool readOnly;
 };
-
