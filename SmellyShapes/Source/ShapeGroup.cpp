@@ -32,7 +32,7 @@ ShapeGroup::~ShapeGroup()
 
 void ShapeGroup::add(Shape *shape)
 {
-  if (readOnly)
+  if (readOnly || contains(shape))
     return;
 
   size_t newSize = size + 1;
@@ -46,10 +46,6 @@ void ShapeGroup::add(Shape *shape)
     shapes = newShapes;
   }
 
-  if (contains(shape))
-  {
-    return;
-  }
   shapes[size++] = shape;
 }
 
