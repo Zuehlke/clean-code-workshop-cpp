@@ -1,16 +1,15 @@
 #pragma once
-#include "ShapeGroup.h"
 #include "Color.h"
+#include "ShapeGroup.h"
 
 class DrawingBoard : public ShapeGroup
 {
 public:
-    DrawingBoard();
-    Color getBackgroundColor();
-    void setBackgroundColor(Color backgroundColor);
-    void drawOnScreen();
+  DrawingBoard();
+  Color getBackgroundColor();
+  void setBackgroundColor(Color backgroundColor);
+  void drawOnScreen();
 
 private:
-    Color backgroundColor;
+  Color backgroundColor;
 };
-

@@ -4,19 +4,14 @@
 class Shape
 {
 public:
-
-	virtual ~Shape() {}
-	virtual bool contains(int x, int y) = 0;
-	std::string toXml();
+  virtual ~Shape() {}
+  virtual bool contains(int x, int y) = 0;
+  std::string toXml();
 
 protected:
-
-	Shape() {}
+  Shape() {}
 
 private:
-
-	Shape(const Shape&);
-	Shape& operator= (const Shape&);
-
+  Shape(const Shape &);
+  Shape &operator=(const Shape &);
 };
-

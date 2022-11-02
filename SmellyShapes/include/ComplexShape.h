@@ -4,7 +4,6 @@
 class ComplexShape : public Shape
 {
 public:
-	ComplexShape() {}
-	virtual ~ComplexShape() {}
+  ComplexShape() {}
+  virtual ~ComplexShape() {}
 };
-

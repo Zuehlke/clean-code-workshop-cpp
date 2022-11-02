@@ -1,29 +1,28 @@
 #include "DrawingBoard.h"
-#include <Rectangle.h>
 #include "Circle.h"
+#include <Rectangle.h>
 
-DrawingBoard::DrawingBoard() :
-	backgroundColor("White")
+DrawingBoard::DrawingBoard()
+    : backgroundColor("White")
 {
-	add(new Circle(5, 6, 7));
-	add(new Rectangle(1, 1, 20, 20));
+  add(new Circle(5, 6, 7));
+  add(new Rectangle(1, 1, 20, 20));
 }
 
 Color DrawingBoard::getBackgroundColor()
 {
-	return backgroundColor;
+  return backgroundColor;
 }
 
 void DrawingBoard::setBackgroundColor(Color backgroundColor)
 {
-	this->backgroundColor = backgroundColor;
+  this->backgroundColor = backgroundColor;
 }
 
 void DrawingBoard::drawOnScreen()
 {
-	for (auto shape : shapes)
-	{
-	    // draw shape on screen
-	}
+  for (auto shape : shapes)
+  {
+    // draw shape on screen
+  }
 }
-
