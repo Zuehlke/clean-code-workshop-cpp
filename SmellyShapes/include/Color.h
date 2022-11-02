@@ -4,6 +4,10 @@
 class Color
 {
 public:
+  inline static const std::string RED = "Red";
+  inline static const std::string BLUE = "Blue";
+  inline static const std::string GREEN = "Green";
+
   Color();
   Color(const std::string colorAsText);
   ~Color();
