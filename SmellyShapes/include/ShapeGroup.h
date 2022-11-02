@@ -22,4 +22,5 @@ public:
 private:
   bool readOnly;
   void addToShapes(Shape *shape);
+  bool capacityExceeded() const;
 };

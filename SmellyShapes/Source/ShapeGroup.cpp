@@ -40,7 +40,7 @@ void ShapeGroup::add(Shape *shape)
 
 void ShapeGroup::addToShapes(Shape *shape)
 {
-  if (size + 1 > shapes.size())
+  if (capacityExceeded())
   {
     std::vector<Shape *> newShapes(size + 1 + CAPACITY_INCREMENT);
     for (int i = 0; i < size; ++i)
@@ -52,6 +52,8 @@ void ShapeGroup::addToShapes(Shape *shape)
 
   shapes[size++] = shape;
 }
+
+bool ShapeGroup::capacityExceeded() const { return size + 1 > shapes.size(); }
 
 bool ShapeGroup::contains(void *element)
 {
