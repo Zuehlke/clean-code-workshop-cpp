@@ -1,11 +1,14 @@
 #include "ShapeGroup.h"
 #include <algorithm>
 
+constexpr int INITIAL_CAPACITY = 10;
+constexpr int CAPACITY_INCREMENT = 10;
+
 ShapeGroup::ShapeGroup()
     : size(0)
     , readOnly(false)
 {
-  shapes.resize(10, NULL);
+  shapes.resize(INITIAL_CAPACITY, NULL);
 }
 
 ShapeGroup::ShapeGroup(std::vector<Shape *> &shapes, bool readOnly)
@@ -34,7 +37,7 @@ void ShapeGroup::add(Shape *shape)
     size_t newSize = size + 1;
     if (newSize > shapes.size())
     {
-      std::vector<Shape *> newShapes(newSize + 10);
+      std::vector<Shape *> newShapes(newSize + CAPACITY_INCREMENT);
       for (int i = 0; i < size; ++i)
       {
         newShapes[i] = shapes[i];
