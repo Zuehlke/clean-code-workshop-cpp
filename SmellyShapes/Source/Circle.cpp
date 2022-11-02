@@ -17,7 +17,6 @@ Circle::Circle(int x, int y, int radius)
     : x(x)
     , y(y)
     , radius(radius)
-    , numberOfContainingPoints(0)
     , color("None")
 {
 }
@@ -32,10 +31,6 @@ bool Circle::contains(int x, int y)
   const auto deltaY = y - this->y;
   const auto squaredDistance = squared(deltaX) + squared(deltaY);
   bool result = squaredDistance <= squared(this->radius);
-  if (result == true)
-  {
-    numberOfContainingPoints++;
-  }
   return result;
 }
 
