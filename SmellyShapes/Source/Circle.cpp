@@ -41,7 +41,7 @@ bool Circle::contains(int x, int y)
 
 int Circle::countContainingPoints(int *xCoords, int *yCoords, int size)
 {
-  numberOfContainingPoints = 0;
+  auto numberOfContainingPoints = 0;
   for (int i = 0; i < size; ++i)
   {
     const auto deltaX = xCoords[i] - x;
