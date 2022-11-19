@@ -49,13 +49,6 @@
       <FileName>include\ShapeGroup.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SimpleShape" Collapsed="true">
-    <Position X="1.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAQAAAAAAAAAA=</HashCode>
-      <FileName>include\SimpleShape.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Square" Collapsed="true">
     <Position X="2.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>

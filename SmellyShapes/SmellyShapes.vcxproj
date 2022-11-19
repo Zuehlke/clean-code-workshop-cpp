@@ -89,7 +89,6 @@
     <ClInclude Include="include\Rectangle.h" />
     <ClInclude Include="include\Shape.h" />
     <ClInclude Include="include\ShapeGroup.h" />
-    <ClInclude Include="include\SimpleShape.h" />
     <ClInclude Include="include\Square.h" />
   </ItemGroup>
   <ItemGroup>
