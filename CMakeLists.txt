@@ -10,7 +10,6 @@ include_directories(SmellyShapes/include)
 set(SOURCE_FILES
         SmellyShapes/include/Circle.h
         SmellyShapes/include/Color.h
-        SmellyShapes/include/ComplexShape.h
         SmellyShapes/include/DrawingBoard.h
         SmellyShapes/include/Rectangle.h
         SmellyShapes/include/Shape.h

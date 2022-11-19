@@ -14,13 +14,6 @@
       <FileName>include\Color.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ComplexShape" Collapsed="true">
-    <Position X="5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
-      <FileName>include\ComplexShape.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="DrawingBoard" Collapsed="true">
     <Position X="5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
