@@ -2,7 +2,7 @@
 #include "Color.h"
 #include "ShapeGroup.h"
 
-class DrawingBoard : public ShapeGroup
+class DrawingBoard
 {
 public:
   DrawingBoard();
