@@ -9,6 +9,8 @@ public:
   Color getBackgroundColor();
   void setBackgroundColor(Color backgroundColor);
   void drawOnScreen();
+  void add(Shape *shape);
+
 
 private:
   Color backgroundColor;
