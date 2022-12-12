@@ -12,4 +12,5 @@ public:
 
 private:
   Color backgroundColor;
+  ShapeGroup shapeGroup;
 };
