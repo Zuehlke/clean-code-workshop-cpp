@@ -47,6 +47,11 @@ string Color::getColorFormatted(bool includeHexAndRGB) const
     return colorAsText + " " + colorAsHex + " " + colorAsRGB_Red + ":" + colorAsRGB_Green + ":" + colorAsRGB_Blue;
   }
 
+  return getColorAsText();
+}
+
+const string &Color::getColorAsText() const
+{
   return colorAsText;
 }
 

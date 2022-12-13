@@ -28,4 +28,5 @@ private:
   std::string errorMessage;
 
   int convertTextValueToRGBAndHex();
+  const std::string &getColorAsText() const;
 };
