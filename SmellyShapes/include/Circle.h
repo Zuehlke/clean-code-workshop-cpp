@@ -1,6 +1,7 @@
 #pragma once
 #include "Color.h"
 #include "Shape.h"
+#include <string>
 #include <vector>
 
 class Circle : public Shape
@@ -19,6 +20,8 @@ public:
   int getRadius() const;
   double calculateArea() const;
   std::string toString() const;
+
+  std::string toXml() override;
 
 private:
   int x;

@@ -1,6 +1,7 @@
 #pragma once
 #include "Color.h"
 #include "Shape.h"
+#include <string>
 
 class Rectangle : public Shape
 {
@@ -16,6 +17,8 @@ public:
   bool contains(int x, int y) override;
   virtual int calculateArea();
   std::string toString();
+
+  std::string toXml();
 
 private:
   int x;

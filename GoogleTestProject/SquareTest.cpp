@@ -1,4 +1,5 @@
 #include "../SmellyShapes/include/Square.h"
+#include "Rectangle.h"
 #include "pch.h"
 #include <stdexcept>
 
