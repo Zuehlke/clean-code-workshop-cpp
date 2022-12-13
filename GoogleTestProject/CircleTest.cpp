@@ -1,6 +1,7 @@
 #include "../SmellyShapes/include/Circle.h"
 #include "pch.h"
 #define _USE_MATH_DEFINES
+#include "Rectangle.h"
 #include "math.h"
 
 class CircleTest : public ::testing::Test

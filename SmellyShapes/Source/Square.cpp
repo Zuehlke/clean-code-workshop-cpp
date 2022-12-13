@@ -44,3 +44,17 @@ bool Square::ContainsLine(int x1, int y1, int x2, int y2)
 {
   return contains(x1, y1) && contains(x2, y2);
 }
+
+std::string Square::toXml()
+{
+  std::string xmlString = "";
+
+  Square *square = (Square *)this;
+  xmlString.append("<square");
+  xmlString.append(" x=\"" + std::__cxx11::to_string(square->getX()) + "\"");
+  xmlString.append(" y=\"" + std::__cxx11::to_string(square->getY()) + "\"");
+  xmlString.append(" edgeLength=\"" + std::__cxx11::to_string(square->getWidth()) + "\"");
+  xmlString.append(" />\n");
+
+  return xmlString;
+}

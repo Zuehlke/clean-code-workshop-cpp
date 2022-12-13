@@ -1,5 +1,9 @@
 #include "Circle.h"
-#include <vector>
+#include "Rectangle.h"
+#include "Shape.h"
+#include <ShapeGroup.h>
+#include <Square.h>
+#include <stdexcept>
 
 #define PI 3.14
 
@@ -84,4 +88,18 @@ string Circle::toString() const
          color.getColorAsRGBRed() + "," +
          color.getColorAsRGBGreen() + "," +
          color.getColorAsRGBBlue();
+}
+
+string Circle::toXml()
+{
+  string xmlString = "";
+
+  Circle *circle = (Circle *)this;
+  xmlString.append("<circle");
+  xmlString.append(" x=\"" + to_string(circle->getX()) + "\"");
+  xmlString.append(" y=\"" + to_string(circle->getY()) + "\"");
+  xmlString.append(" radius=\"" + to_string(circle->getRadius()) + "\"");
+  xmlString.append(" />\n");
+
+  return xmlString;
 }

@@ -1,6 +1,7 @@
 #include "../SmellyShapes/include/ShapeGroup.h"
 #include "../SmellyShapes/include/Circle.h"
 #include "../SmellyShapes/include/Rectangle.h"
+#include "Rectangle.h"
 #include "pch.h"
 
 TEST(ShapeGroupTest, ToXml)

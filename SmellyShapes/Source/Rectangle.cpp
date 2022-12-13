@@ -1,5 +1,10 @@
 #include "Rectangle.h"
+#include "Shape.h"
+#include <Circle.h>
+#include <ShapeGroup.h>
+#include <Square.h>
 #include <sstream>
+#include <stdexcept>
 
 Rectangle::Rectangle(int x, int y, int width, int height)
     : x(x)
@@ -60,4 +65,17 @@ std::string Rectangle::toString()
 void Rectangle::SetWidth(int width)
 {
   this->width = width;
+}
+std::string Rectangle::toXml()
+{
+  std::string xmlString = "";
+
+  xmlString.append("<rectangle");
+  xmlString.append(" x=\"" + std::__cxx11::to_string(this->getX()) + "\"");
+  xmlString.append(" y=\"" + std::__cxx11::to_string(this->getY()) + "\"");
+  xmlString.append(" width=\"" + std::__cxx11::to_string(this->getWidth()) + "\"");
+  xmlString.append(" height=\"" + std::__cxx11::to_string(this->getHeight()) + "\"");
+  xmlString.append(" />\n");
+
+  return xmlString;
 }

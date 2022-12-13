@@ -1,4 +1,5 @@
 #include "../SmellyShapes/include/Rectangle.h"
+#include "Rectangle.h"
 #include "pch.h"
 
 class RectangleTest : public ::testing::Test

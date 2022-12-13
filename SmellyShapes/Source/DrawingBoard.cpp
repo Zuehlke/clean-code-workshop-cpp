@@ -5,8 +5,8 @@
 DrawingBoard::DrawingBoard()
     : backgroundColor("White")
 {
-  add(new Circle(5, 6, 7));
-  add(new Rectangle(1, 1, 20, 20));
+  shapeGroup.add(new Circle(5, 6, 7));
+  shapeGroup.add(new Rectangle(1, 1, 20, 20));
 }
 
 Color DrawingBoard::getBackgroundColor()
@@ -21,7 +21,7 @@ void DrawingBoard::setBackgroundColor(Color backgroundColor)
 
 void DrawingBoard::drawOnScreen()
 {
-  for (auto shape : shapes)
+  for (auto shape : shapeGroup.shapes)
   {
     // draw shape on screen
   }

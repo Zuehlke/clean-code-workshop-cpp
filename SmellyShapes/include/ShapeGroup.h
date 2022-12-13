@@ -1,6 +1,7 @@
 #pragma once
 #include "Shape.h"
 #include <memory>
+#include <string>
 #include <vector>
 
 class ShapeGroup : public Shape
@@ -18,6 +19,8 @@ public:
 
   std::vector<Shape *> shapes;
   int size;
+
+  std::string toXml() override;
 
 private:
   bool readOnly;
