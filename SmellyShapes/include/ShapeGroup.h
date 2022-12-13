@@ -1,9 +1,9 @@
 #pragma once
-#include "ComplexShape.h"
+#include "Shape.h"
 #include <memory>
 #include <vector>
 
-class ShapeGroup : public ComplexShape
+class ShapeGroup : public Shape
 {
 public:
   ShapeGroup();
@@ -21,4 +21,7 @@ public:
 
 private:
   bool readOnly;
+  void increaseCapacity();
+  bool capacityExceeded() const;
+  void insertShape(Shape *shape);
 };

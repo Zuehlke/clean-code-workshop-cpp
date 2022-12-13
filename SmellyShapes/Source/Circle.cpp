@@ -4,12 +4,18 @@
 #define PI 3.14
 
 using namespace std;
+namespace
+{
+int squared(const int i)
+{
+  return i * i;
+}
+} // namespace
 
 Circle::Circle(int x, int y, int radius)
     : x(x)
     , y(y)
     , radius(radius)
-    , numberOfContainingPoints(0)
     , color("None")
 {
 }
@@ -20,20 +26,22 @@ Circle::~Circle()
 
 bool Circle::contains(int x, int y)
 {
-  bool result = (x - this->x) * (x - this->x) + (y - this->y) * (y - this->y) <= this->radius * this->radius;
-  if (result == true)
-  {
-    numberOfContainingPoints++;
-  }
-  return result;
+  const int xDistance = x - this->x;
+  const int yDistance = y - this->y;
+  const int squaredDistancePythagoras = squared(xDistance) + squared(yDistance);
+  const bool isInCircle = squaredDistancePythagoras <= squared(this->radius);
+  return isInCircle;
 }
 
 int Circle::countContainingPoints(int *xCoords, int *yCoords, int size)
 {
-  numberOfContainingPoints = 0;
+  auto numberOfContainingPoints = 0;
   for (int i = 0; i < size; ++i)
   {
-    contains(xCoords[i], yCoords[i]);
+    if (contains(xCoords[i], yCoords[i]))
+    {
+      numberOfContainingPoints++;
+    }
   }
 
   return numberOfContainingPoints;

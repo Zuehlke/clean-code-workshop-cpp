@@ -1,9 +1,9 @@
 #pragma once
 #include "Color.h"
-#include "SimpleShape.h"
+#include "Shape.h"
 #include <vector>
 
-class Circle : public SimpleShape
+class Circle : public Shape
 {
 public:
   Circle(int x, int y, int radius);
@@ -34,6 +34,5 @@ private:
   int x;
   int y;
   int radius;
-  int numberOfContainingPoints;
   Color color;
 };

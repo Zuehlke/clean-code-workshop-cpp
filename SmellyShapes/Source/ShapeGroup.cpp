@@ -1,11 +1,14 @@
 #include "ShapeGroup.h"
 #include <algorithm>
 
+static const int INITIAL_CAPACITY = 10;
+static const int CAPACITY_INCREMENT = 10;
+
 ShapeGroup::ShapeGroup()
     : size(0)
     , readOnly(false)
 {
-  shapes.resize(10, NULL);
+  shapes.resize(INITIAL_CAPACITY, NULL);
 }
 
 ShapeGroup::ShapeGroup(std::vector<Shape *> &shapes, bool readOnly)
@@ -29,25 +32,37 @@ ShapeGroup::~ShapeGroup()
 
 void ShapeGroup::add(Shape *shape)
 {
-  if (!readOnly)
-  {
-    size_t newSize = size + 1;
-    if (newSize > shapes.size())
-    {
-      std::vector<Shape *> newShapes(newSize + 10);
-      for (int i = 0; i < size; ++i)
-      {
-        newShapes[i] = shapes[i];
-      }
-      shapes = newShapes;
-    }
+  if (readOnly)
+    return;
 
-    if (contains(shape))
-    {
-      return;
-    }
-    shapes[size++] = shape;
+  if (contains(shape))
+  {
+    return;
   }
+
+  if (capacityExceeded())
+  {
+    increaseCapacity();
+  }
+
+  insertShape(shape);
+}
+void ShapeGroup::insertShape(Shape *shape)
+{
+  shapes[size] = shape;
+  size++;
+}
+
+bool ShapeGroup::capacityExceeded() const { return size + 1 > shapes.size(); }
+
+void ShapeGroup::increaseCapacity()
+{
+  std::vector<Shape *> newShapes(size + 1 + CAPACITY_INCREMENT);
+  for (int i = 0; i < size; ++i)
+  {
+    newShapes[i] = shapes[i];
+  }
+  shapes = newShapes;
 }
 
 bool ShapeGroup::contains(void *element)
