@@ -69,17 +69,7 @@ void Rectangle::SetWidth(int width)
 std::string Rectangle::toXml()
 {
   std::string xmlString = "";
-
-  if (dynamic_cast<Circle *>(this) != NULL)
-  {
-    Circle *circle = (Circle *)this;
-    xmlString.append("<circle");
-    xmlString.append(" x=\"" + std::__cxx11::to_string(circle->getX()) + "\"");
-    xmlString.append(" y=\"" + std::__cxx11::to_string(circle->getY()) + "\"");
-    xmlString.append(" radius=\"" + std::__cxx11::to_string(circle->getRadius()) + "\"");
-    xmlString.append(" />\n");
-  }
-  else if (dynamic_cast<Square *>(this) != NULL)
+  if (dynamic_cast<Square *>(this) != NULL)
   {
     Square *square = (Square *)this;
     xmlString.append("<square");
@@ -98,22 +88,5 @@ std::string Rectangle::toXml()
     xmlString.append(" height=\"" + std::__cxx11::to_string(rectangle->getHeight()) + "\"");
     xmlString.append(" />\n");
   }
-  else if (dynamic_cast<ShapeGroup *>(this) != NULL)
-  {
-    ShapeGroup *shapeGroup = (ShapeGroup *)this;
-    xmlString.append("<shapegroup>\n");
-    for (int i = 0; i < shapeGroup->size; i++)
-    {
-      Shape *shape = shapeGroup->shapes[i];
-      xmlString.append(shape->toXml());
-    }
-    xmlString.append("</shapegroup>\n");
-  }
-  else
-  {
-    std::string name = typeid(*this).name();
-    throw std::runtime_error(std::string("Unknown shape type: " + name).c_str());
-  }
-
   return xmlString;
 }
