@@ -1,10 +1,4 @@
 #include "ShapeGroup.h"
-#include "Rectangle.h"
-#include "Shape.h"
-#include <Circle.h>
-#include <Square.h>
-#include <algorithm>
-#include <stdexcept>
 
 constexpr int INITIAL_CAPACITY = 10;
 constexpr int CAPACITY_INCREMENT = 10;
@@ -99,11 +93,10 @@ void ShapeGroup::setReadOnly(bool readOnly)
 std::string ShapeGroup::toXml()
 {
   std::string xmlString = "";
-  ShapeGroup *shapeGroup = (ShapeGroup *)this;
   xmlString.append("<shapegroup>\n");
-  for (int i = 0; i < shapeGroup->size; i++)
+  for (int i = 0; i < this->size; i++)
   {
-    Shape *shape = shapeGroup->shapes[i];
+    Shape *shape = this->shapes[i];
     xmlString.append(shape->toXml());
   }
   xmlString.append("</shapegroup>\n");

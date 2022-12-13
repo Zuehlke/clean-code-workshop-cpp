@@ -1,10 +1,5 @@
 #include "Rectangle.h"
-#include "Shape.h"
-#include <Circle.h>
-#include <ShapeGroup.h>
-#include <Square.h>
 #include <sstream>
-#include <stdexcept>
 
 Rectangle::Rectangle(int x, int y, int width, int height)
     : x(x)
@@ -70,24 +65,11 @@ void Rectangle::SetWidth(int width)
 std::string Rectangle::toXml()
 {
   std::string xmlString = "";
-  if (dynamic_cast<Square *>(this) != NULL)
-  {
-    Square *square = (Square *)this;
-    xmlString.append("<square");
-    xmlString.append(" x=\"" + std::__cxx11::to_string(square->getX()) + "\"");
-    xmlString.append(" y=\"" + std::__cxx11::to_string(square->getY()) + "\"");
-    xmlString.append(" edgeLength=\"" + std::__cxx11::to_string(square->getWidth()) + "\"");
-    xmlString.append(" />\n");
-  }
-  else if (dynamic_cast<Rectangle *>(this) != NULL)
-  {
-    Rectangle *rectangle = (Rectangle *)this;
-    xmlString.append("<rectangle");
-    xmlString.append(" x=\"" + std::__cxx11::to_string(rectangle->getX()) + "\"");
-    xmlString.append(" y=\"" + std::__cxx11::to_string(rectangle->getY()) + "\"");
-    xmlString.append(" width=\"" + std::__cxx11::to_string(rectangle->getWidth()) + "\"");
-    xmlString.append(" height=\"" + std::__cxx11::to_string(rectangle->getHeight()) + "\"");
-    xmlString.append(" />\n");
-  }
+  xmlString.append("<rectangle");
+  xmlString.append(" x=\"" + std::__cxx11::to_string(this->getX()) + "\"");
+  xmlString.append(" y=\"" + std::__cxx11::to_string(this->getY()) + "\"");
+  xmlString.append(" width=\"" + std::__cxx11::to_string(this->getWidth()) + "\"");
+  xmlString.append(" height=\"" + std::__cxx11::to_string(this->getHeight()) + "\"");
+  xmlString.append(" />\n");
   return xmlString;
 }
