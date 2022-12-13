@@ -44,3 +44,28 @@ bool Square::ContainsLine(int x1, int y1, int x2, int y2)
 {
   return contains(x1, y1) && contains(x2, y2);
 }
+
+std::string Square::toXml()
+{
+  std::string xmlString = "";
+  if (dynamic_cast<Square *>(this) != NULL)
+  {
+    Square *square = (Square *)this;
+    xmlString.append("<square");
+    xmlString.append(" x=\"" + std::__cxx11::to_string(square->getX()) + "\"");
+    xmlString.append(" y=\"" + std::__cxx11::to_string(square->getY()) + "\"");
+    xmlString.append(" edgeLength=\"" + std::__cxx11::to_string(square->getWidth()) + "\"");
+    xmlString.append(" />\n");
+  }
+  else if (dynamic_cast<Rectangle *>(this) != NULL)
+  {
+    Rectangle *rectangle = (Rectangle *)this;
+    xmlString.append("<rectangle");
+    xmlString.append(" x=\"" + std::__cxx11::to_string(rectangle->getX()) + "\"");
+    xmlString.append(" y=\"" + std::__cxx11::to_string(rectangle->getY()) + "\"");
+    xmlString.append(" width=\"" + std::__cxx11::to_string(rectangle->getWidth()) + "\"");
+    xmlString.append(" height=\"" + std::__cxx11::to_string(rectangle->getHeight()) + "\"");
+    xmlString.append(" />\n");
+  }
+  return xmlString;
+}

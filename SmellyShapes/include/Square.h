@@ -12,6 +12,7 @@ public:
   int getHeight() override;
   int calculateArea() override;
   std::string ToString();
+  std::string toXml();
 
   bool ContainsLine(int x1, int y1, int x2, int y2);
 };

@@ -66,6 +66,7 @@ void Rectangle::SetWidth(int width)
 {
   this->width = width;
 }
+
 std::string Rectangle::toXml()
 {
   std::string xmlString = "";
