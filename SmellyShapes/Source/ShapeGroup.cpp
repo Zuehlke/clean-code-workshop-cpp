@@ -18,15 +18,11 @@ ShapeGroup::ShapeGroup(std::vector<Shape *> &shapes, bool readOnly)
   {
     this->shapes.push_back(*it);
   }
-  shapes.clear();
-}
-
-ShapeGroup::~ShapeGroup()
-{
-  for (std::vector<Shape *>::iterator it = shapes.begin(); it != shapes.end(); ++it)
+  for (auto* ptr : shapes)
   {
-    delete *it;
+    newShapes.emplace_back(ptr);
   }
+  shapes.clear();
 }
 
 void ShapeGroup::add(Shape *shape)
@@ -45,6 +41,7 @@ void ShapeGroup::addToShapes(Shape *shape)
   }
 
   shapes[size++] = shape;
+  newShapes.emplace_back(shape);
 }
 
 void ShapeGroup::increaseCapacity()

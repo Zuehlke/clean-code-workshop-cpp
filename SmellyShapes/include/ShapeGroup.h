@@ -10,7 +10,6 @@ public:
   ShapeGroup();
   ShapeGroup(const ShapeGroup &);
   ShapeGroup(std::vector<Shape *> &shapes, bool readOnly);
-  virtual ~ShapeGroup();
 
   void add(Shape *shape);
   bool contains(void *element);
