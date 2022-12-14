@@ -85,3 +85,11 @@ std::string ShapeGroup::toXml()
 
   return xmlString;
 }
+std::vector<Shape *> const& ShapeGroup::getShapes() const
+{
+  return shapes;
+}
+int ShapeGroup::getSize() const
+{
+  return size;
+}

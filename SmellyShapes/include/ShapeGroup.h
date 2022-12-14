@@ -16,12 +16,15 @@ public:
   virtual bool contains(int x, int y) override;
   void setReadOnly(bool readOnly);
 
+  std::string toXml() override;
+  std::vector<Shape *> const& getShapes() const;
+  int getSize() const;
+private:
   std::vector<Shape *> shapes;
+
   int size;
 
   std::vector<std::unique_ptr<Shape>> newShapes;
-
-  std::string toXml() override;
 
 private:
   bool readOnly;
