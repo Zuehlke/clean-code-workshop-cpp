@@ -29,4 +29,5 @@ private:
 
   int convertTextValueToRGBAndHex();
   const std::string &getColorAsText() const;
+  std::string getColorFormatted() const;
 };

@@ -44,10 +44,15 @@ string Color::getColorFormatted(bool includeHexAndRGB) const
 {
   if (includeHexAndRGB)
   {
-    return colorAsText + " " + colorAsHex + " " + colorAsRGB_Red + ":" + colorAsRGB_Green + ":" + colorAsRGB_Blue;
+    return getColorFormatted();
   }
 
   return getColorAsText();
+}
+
+string Color::getColorFormatted() const
+{
+  return colorAsText + " " + colorAsHex + " " + colorAsRGB_Red + ":" + colorAsRGB_Green + ":" + colorAsRGB_Blue;
 }
 
 const string &Color::getColorAsText() const
