@@ -20,6 +20,8 @@ public:
   std::vector<Shape *> shapes;
   int size;
 
+  std::vector<std::unique_ptr<Shape>> newShapes;
+
   std::string toXml() override;
 
 private:
