@@ -1,12 +1,6 @@
 #pragma once
 #include <string>
 
-struct Point
-{
-  int x;
-  int y;
-};
-
 class Shape
 {
 public:

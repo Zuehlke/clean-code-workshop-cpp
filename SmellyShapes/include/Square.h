@@ -1,4 +1,5 @@
 #pragma once
+#include "Point.h"
 #include "Rectangle.h"
 
 class Square : public Rectangle
