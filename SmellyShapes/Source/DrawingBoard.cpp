@@ -5,7 +5,7 @@
 DrawingBoard::DrawingBoard()
     : backgroundColor("White")
 {
-  shapeGroup.add(new Circle(5, 6, 7));
+  shapeGroup.add(new Circle(Point{5, 6}, 7));
   shapeGroup.add(new Rectangle(1, 1, 20, 20));
 }
 

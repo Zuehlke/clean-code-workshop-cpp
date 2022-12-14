@@ -16,11 +16,8 @@ int squared(const int i)
 }
 } // namespace
 
-Circle::Circle(int x, int y, int radius)
-    : x(x)
-    , y(y)
-    , radius(radius)
-    , color("None")
+Circle::Circle(Point point, int radius)
+  : x(point.x), y(point.y), radius(radius), color("None")
 {
 }
 
@@ -89,7 +86,6 @@ string Circle::toString() const
          color.getColorAsRGBGreen() + "," +
          color.getColorAsRGBBlue();
 }
-
 string Circle::toXml()
 {
   string xmlString = "";

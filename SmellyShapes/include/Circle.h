@@ -1,13 +1,14 @@
 #pragma once
 #include "Color.h"
 #include "Shape.h"
+#include "Point.h"
 #include <string>
 #include <vector>
 
 class Circle : public Shape
 {
 public:
-  Circle(int x, int y, int radius);
+  Circle(Point point, int radius);
   virtual ~Circle();
 
   bool contains(int x, int y);
