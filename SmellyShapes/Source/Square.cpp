@@ -55,3 +55,8 @@ std::string Square::toXml()
   xmlString.append(" />\n");
   return xmlString;
 }
+
+bool Square::ContainsPoint(const Point &point)
+{
+    return ContainsPoint(point.x, point.y);
+}

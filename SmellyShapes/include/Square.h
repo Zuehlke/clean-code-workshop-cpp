@@ -9,6 +9,7 @@ public:
   virtual ~Square();
 
   bool ContainsPoint(int x, int y);
+  bool ContainsPoint(Point const& point);
   int getHeight() override;
   int calculateArea() override;
   std::string ToString();
