@@ -32,4 +32,4 @@ C# Version here
 https://github.com/zuehlke/clean-code-workshop-csharp
 
 Java version here
-https://github.com/Zuehlke/clean-code-workshop/tree/master/smelly-shapes-java
+https://github.com/Zuehlke/clean-code-workshop/tree/master/smelly-oldShapes-java
