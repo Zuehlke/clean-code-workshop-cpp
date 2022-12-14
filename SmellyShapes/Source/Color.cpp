@@ -42,12 +42,7 @@ string Color::getErrorMessage() const
 
 string Color::getColorFormatted(bool includeHexAndRGB) const
 {
-  if (includeHexAndRGB)
-  {
-    return getColorFormatted();
-  }
-
-  return getColorAsText();
+  return includeHexAndRGB ? getColorFormatted() : getColorAsText();
 }
 
 string Color::getColorFormatted() const
