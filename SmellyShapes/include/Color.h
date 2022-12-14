@@ -16,7 +16,6 @@ public:
   std::string getColorAsRGBGreen() const;
   std::string getColorAsRGBRed() const;
   std::string getErrorMessage() const;
-  std::string getColorFormatted(bool includeHexAndRGB) const;
   std::string getColorAsHex() const;
 
   const std::string &getColorAsText() const;
