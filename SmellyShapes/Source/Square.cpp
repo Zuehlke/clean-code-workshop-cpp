@@ -18,11 +18,6 @@ Square::~Square()
 {
 }
 
-bool Square::ContainsPoint(int x, int y)
-{
-  return ContainsPoint(Point{x, y});
-}
-
 int Square::getHeight()
 {
   throw runtime_error("Square does not have a height, only edgeLength");

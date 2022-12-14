@@ -35,16 +35,16 @@ TEST(SquareTest, ContainsPoints)
 {
   Square square(0, 0, 1);
 
-  ASSERT_TRUE(square.ContainsPoint(0, 0));
-  ASSERT_TRUE(square.ContainsPoint(0, 1));
-  ASSERT_TRUE(square.ContainsPoint(1, 1));
-  ASSERT_TRUE(square.ContainsPoint(1, 0));
+  ASSERT_TRUE(square.ContainsPoint(Point{0, 0}));
+  ASSERT_TRUE(square.ContainsPoint(Point{0, 1}));
+  ASSERT_TRUE(square.ContainsPoint(Point{1, 1}));
+  ASSERT_TRUE(square.ContainsPoint(Point{1, 0}));
 
-  ASSERT_FALSE(square.ContainsPoint(-1, -1));
-  ASSERT_FALSE(square.ContainsPoint(-1, 0));
-  ASSERT_FALSE(square.ContainsPoint(0, -1));
-  ASSERT_FALSE(square.ContainsPoint(1, 2));
-  ASSERT_FALSE(square.ContainsPoint(2, 1));
+  ASSERT_FALSE(square.ContainsPoint(Point{-1, -1}));
+  ASSERT_FALSE(square.ContainsPoint(Point{-1, 0}));
+  ASSERT_FALSE(square.ContainsPoint(Point{0, -1}));
+  ASSERT_FALSE(square.ContainsPoint(Point{1, 2}));
+  ASSERT_FALSE(square.ContainsPoint(Point{2, 1}));
 }
 
 TEST(SquareTest, GetHeigth)
