@@ -3,13 +3,13 @@
 
 using namespace std;
 
-Square::Square(int x, int y, int edgeLength)
-    : Rectangle(x, y, edgeLength, edgeLength)
+Square::Square(Point point, int edgeLength)
+  : Rectangle(point.x, point.y, edgeLength, edgeLength)
 {
 }
 
-Square::Square(int x, int y, int edgeLength, Color color)
-    : Rectangle(x, y, edgeLength, edgeLength)
+Square::Square(Point point, int edgeLength, Color color)
+  : Square(point, edgeLength)
 {
   this->color = color;
 }
@@ -50,7 +50,6 @@ std::string Square::toXml()
   xmlString.append(" />\n");
   return xmlString;
 }
-
 bool Square::ContainsPoint(const Point &point)
 {
   return getX() <= point.x && point.x <= getX() + getWidth() && getY() <= point.y && point.y <= getY() + getWidth();

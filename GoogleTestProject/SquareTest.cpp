@@ -5,13 +5,13 @@
 
 TEST(SquareTest, CalculateArea)
 {
-  Square square(0, 0, 2);
+  Square square(Point{0, 0}, 2);
   ASSERT_EQ(4, square.calculateArea());
 }
 
 TEST(SquareTest, ToString_)
 {
-  Square square(0, 0, 1, Color("Red"));
+  Square square(Point{0, 0}, 1, Color("Red"));
   ASSERT_STREQ("Square: (0:0) edgeLength=1 color=#FF0000", square.ToString().c_str());
 }
 
@@ -20,20 +20,20 @@ https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#tem
 */
 TEST(SquareTest, DISABLED_ToString_FromBaseClass)
 {
-  Rectangle *square = new Square(0, 0, 1, Color("Red"));
+  Rectangle *square = new Square(Point{0, 0}, 1, Color("Red"));
   ASSERT_STREQ("Square: (0:0) edgeLength=1 color=#FF0000", square->toString().c_str());
 }
 
 TEST(SquareTest, ToXml)
 {
-  Square square(0, 1, 2);
+  Square square(Point{0, 1}, 2);
   std::string xml = square.toXml();
   ASSERT_STREQ("<square x=\"0\" y=\"1\" edgeLength=\"2\" />\n", xml.c_str());
 }
 
 TEST(SquareTest, ContainsPoints)
 {
-  Square square(0, 0, 1);
+  Square square(Point{0, 0}, 1);
 
   ASSERT_TRUE(square.ContainsPoint(Point{0, 0}));
   ASSERT_TRUE(square.ContainsPoint(Point{0, 1}));
@@ -49,7 +49,7 @@ TEST(SquareTest, ContainsPoints)
 
 TEST(SquareTest, GetHeigth)
 {
-  Square square(0, 0, 0);
+  Square square(Point{0, 0}, 0);
   auto func = [&]
   { square.getHeight(); };
 

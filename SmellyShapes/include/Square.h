@@ -5,8 +5,8 @@
 class Square : public Rectangle
 {
 public:
-  Square(int x, int y, int edgeLength);
-  Square(int x, int y, int edgeLength, Color color);
+  Square(Point point, int edgeLength);
+  Square(Point point, int edgeLength, Color color);
   virtual ~Square();
 
   bool ContainsPoint(Point const& point);
