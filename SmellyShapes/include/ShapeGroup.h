@@ -20,13 +20,8 @@ public:
   std::vector<Shape *> getShapes() const;
   int getSize() const;
 private:
-  std::vector<Shape *> shapes;
-
-  int size;
 
   std::vector<std::unique_ptr<Shape>> newShapes;
-
-private:
   bool readOnly;
   void addToShapes(Shape *shape);
 };
