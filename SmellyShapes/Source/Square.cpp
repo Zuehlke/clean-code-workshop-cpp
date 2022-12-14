@@ -20,7 +20,7 @@ Square::~Square()
 
 bool Square::ContainsPoint(int x, int y)
 {
-  return getX() <= x && x <= getX() + getWidth() && getY() <= y && y <= getY() + getWidth();
+  return ContainsPoint(Point{x, y});
 }
 
 int Square::getHeight()
@@ -58,5 +58,5 @@ std::string Square::toXml()
 
 bool Square::ContainsPoint(const Point &point)
 {
-    return ContainsPoint(point.x, point.y);
+  return getX() <= point.x && point.x <= getX() + getWidth() && getY() <= point.y && point.y <= getY() + getWidth();
 }
