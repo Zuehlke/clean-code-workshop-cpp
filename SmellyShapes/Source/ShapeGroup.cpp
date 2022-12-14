@@ -19,7 +19,7 @@ ShapeGroup::ShapeGroup(std::vector<Shape *> &shapes, bool readOnly)
   {
     this->shapes.push_back(*it);
   }
-  for (auto* ptr : shapes)
+  for (auto *ptr : shapes)
   {
     newShapes.emplace_back(ptr);
   }
@@ -59,7 +59,7 @@ bool ShapeGroup::capacityExceeded() const { return size + 1 > shapes.size(); }
 
 bool ShapeGroup::contains(void *element)
 {
-  return std::find_if(newShapes.begin(), newShapes.end(), [element](auto const& shape_ptr)
+  return std::find_if(newShapes.begin(), newShapes.end(), [element](auto const &shape_ptr)
                       { return shape_ptr.get() == element; }) != newShapes.end();
 }
 
@@ -77,7 +77,7 @@ std::string ShapeGroup::toXml()
 {
   std::string xmlString = "";
   xmlString.append("<shapegroup>\n");
-  for (const auto& shape: newShapes)
+  for (const auto &shape : newShapes)
   {
     xmlString.append(shape->toXml());
   }
@@ -85,11 +85,16 @@ std::string ShapeGroup::toXml()
 
   return xmlString;
 }
-std::vector<Shape *> const& ShapeGroup::getShapes() const
+
+std::vector<Shape *> ShapeGroup::getShapes() const
 {
+  std::vector<Shape *> shapes(newShapes.size(), nullptr);
+  std::transform(newShapes.begin(), newShapes.end(), shapes.begin(), [](const auto &shape)
+                 { return shape.get(); });
   return shapes;
 }
+
 int ShapeGroup::getSize() const
 {
-  return size;
+  return newShapes.size();
 }

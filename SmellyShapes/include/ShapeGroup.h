@@ -17,7 +17,7 @@ public:
   void setReadOnly(bool readOnly);
 
   std::string toXml() override;
-  std::vector<Shape *> const& getShapes() const;
+  std::vector<Shape *> getShapes() const;
   int getSize() const;
 private:
   std::vector<Shape *> shapes;
