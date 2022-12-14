@@ -1,4 +1,5 @@
 #include "ShapeGroup.h"
+#include <algorithm>
 
 constexpr int INITIAL_CAPACITY = 10;
 constexpr int CAPACITY_INCREMENT = 10;
@@ -58,29 +59,14 @@ bool ShapeGroup::capacityExceeded() const { return size + 1 > shapes.size(); }
 
 bool ShapeGroup::contains(void *element)
 {
-  for (int i = 0; i < size; ++i)
-  {
-    if (shapes[i] == element)
-    {
-      return true;
-    }
-  }
-
-  return false;
+  return std::find_if(newShapes.begin(), newShapes.end(), [element](auto const& shape_ptr)
+                      { return shape_ptr.get() == element; }) != newShapes.end();
 }
 
 bool ShapeGroup::contains(int x, int y)
 {
-  for (int i = 0; i < size; ++i)
-  {
-    Shape *shape = shapes[i];
-    if (shape != NULL && shape->contains(x, y))
-    {
-      return true;
-    }
-  }
-
-  return false;
+  return std::any_of(newShapes.begin(), newShapes.end(), [x, y](auto const &shape_ptr)
+                     { return shape_ptr && shape_ptr->contains(x, y); });
 }
 
 void ShapeGroup::setReadOnly(bool readOnly)
@@ -91,9 +77,8 @@ std::string ShapeGroup::toXml()
 {
   std::string xmlString = "";
   xmlString.append("<shapegroup>\n");
-  for (int i = 0; i < this->size; i++)
+  for (const auto& shape: newShapes)
   {
-    Shape *shape = this->shapes[i];
     xmlString.append(shape->toXml());
   }
   xmlString.append("</shapegroup>\n");
