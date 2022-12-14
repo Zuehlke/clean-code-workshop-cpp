@@ -14,7 +14,7 @@ ShapeGroup::ShapeGroup(std::vector<Shape *> &shapes, bool readOnly)
 {
   for (auto *ptr : shapes)
   {
-    newShapes.emplace_back(ptr);
+    this->shapes.emplace_back(ptr);
   }
   shapes.clear();
 }
@@ -29,18 +29,18 @@ void ShapeGroup::add(Shape *shape)
 
 void ShapeGroup::addToShapes(Shape *shape)
 {
-  newShapes.emplace_back(shape);
+  shapes.emplace_back(shape);
 }
 
 bool ShapeGroup::contains(void *element)
 {
-  return std::find_if(newShapes.begin(), newShapes.end(), [element](auto const &shape_ptr)
-                      { return shape_ptr.get() == element; }) != newShapes.end();
+  return std::find_if(shapes.begin(), shapes.end(), [element](auto const &shape_ptr)
+                      { return shape_ptr.get() == element; }) != shapes.end();
 }
 
 bool ShapeGroup::contains(int x, int y)
 {
-  return std::any_of(newShapes.begin(), newShapes.end(), [x, y](auto const &shape_ptr)
+  return std::any_of(shapes.begin(), shapes.end(), [x, y](auto const &shape_ptr)
                      { return shape_ptr && shape_ptr->contains(x, y); });
 }
 
@@ -52,7 +52,7 @@ std::string ShapeGroup::toXml()
 {
   std::string xmlString = "";
   xmlString.append("<shapegroup>\n");
-  for (const auto &shape : newShapes)
+  for (const auto &shape : shapes)
   {
     xmlString.append(shape->toXml());
   }
@@ -63,13 +63,13 @@ std::string ShapeGroup::toXml()
 
 std::vector<Shape *> ShapeGroup::getShapes() const
 {
-  std::vector<Shape *> shapes(newShapes.size(), nullptr);
-  std::transform(newShapes.begin(), newShapes.end(), shapes.begin(), [](const auto &shape)
+  std::vector<Shape *> theShapes(shapes.size(), nullptr);
+  std::transform(shapes.begin(), shapes.end(), theShapes.begin(), [](const auto &shape)
                  { return shape.get(); });
-  return shapes;
+  return theShapes;
 }
 
 int ShapeGroup::getSize() const
 {
-  return newShapes.size();
+  return shapes.size();
 }

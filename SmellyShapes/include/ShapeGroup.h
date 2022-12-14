@@ -21,7 +21,7 @@ public:
   int getSize() const;
 private:
 
-  std::vector<std::unique_ptr<Shape>> newShapes;
+  std::vector<std::unique_ptr<Shape>> shapes;
   bool readOnly;
   void addToShapes(Shape *shape);
 };
