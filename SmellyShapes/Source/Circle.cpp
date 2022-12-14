@@ -17,7 +17,7 @@ int squared(const int i)
 } // namespace
 
 Circle::Circle(Point point, int radius)
-  : x(point.x), y(point.y), radius(radius), color("None")
+  : center(point), radius(radius), color("None")
 {
 }
 
@@ -27,8 +27,8 @@ Circle::~Circle()
 
 bool Circle::contains(int x, int y)
 {
-  const int xDistance = x - this->x;
-  const int yDistance = y - this->y;
+  const int xDistance = x - center.x;
+  const int yDistance = y - center.y;
   const int squaredDistancePythagoras = squared(xDistance) + squared(yDistance);
   const bool isInCircle = squaredDistancePythagoras <= squared(this->radius);
   return isInCircle;
@@ -60,12 +60,12 @@ void Circle::setColor(Color color)
 
 int Circle::getX() const
 {
-  return x;
+  return center.x;
 }
 
 int Circle::getY() const
 {
-  return y;
+  return center.y;
 }
 
 int Circle::getRadius() const
@@ -80,7 +80,7 @@ double Circle::calculateArea() const
 
 string Circle::toString() const
 {
-  return "Circle: (" + to_string(x) + "," + to_string(y) + ") radius= " +
+  return "Circle: (" + to_string(center.x) + "," + to_string(center.y) + ") radius= " +
          to_string(radius) + " RGB=" +
          color.getColorAsRGBRed() + "," +
          color.getColorAsRGBGreen() + "," +

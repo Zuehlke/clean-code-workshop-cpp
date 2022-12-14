@@ -35,8 +35,7 @@ public:
   std::string toXml() override;
 
 private:
-  int x;
-  int y;
+  Point center;
   int radius;
   Color color;
 };
