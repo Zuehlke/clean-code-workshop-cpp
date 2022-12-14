@@ -5,20 +5,13 @@ constexpr int INITIAL_CAPACITY = 10;
 constexpr int CAPACITY_INCREMENT = 10;
 
 ShapeGroup::ShapeGroup()
-    : size(0)
-    , readOnly(false)
+    : readOnly(false)
 {
-  shapes.resize(INITIAL_CAPACITY, NULL);
 }
 
 ShapeGroup::ShapeGroup(std::vector<Shape *> &shapes, bool readOnly)
     : readOnly(readOnly)
-    , size(shapes.size())
 {
-  for (std::vector<Shape *>::iterator it = shapes.begin(); it != shapes.end(); ++it)
-  {
-    this->shapes.push_back(*it);
-  }
   for (auto *ptr : shapes)
   {
     newShapes.emplace_back(ptr);
@@ -36,26 +29,8 @@ void ShapeGroup::add(Shape *shape)
 
 void ShapeGroup::addToShapes(Shape *shape)
 {
-  if (capacityExceeded())
-  {
-    increaseCapacity();
-  }
-
-  shapes[size++] = shape;
   newShapes.emplace_back(shape);
 }
-
-void ShapeGroup::increaseCapacity()
-{
-  std::vector<Shape *> newShapes(size + 1 + CAPACITY_INCREMENT);
-  for (int i = 0; i < size; ++i)
-  {
-    newShapes[i] = shapes[i];
-  }
-  shapes = newShapes;
-}
-
-bool ShapeGroup::capacityExceeded() const { return size + 1 > shapes.size(); }
 
 bool ShapeGroup::contains(void *element)
 {
