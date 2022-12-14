@@ -19,15 +19,15 @@ public:
   std::string getColorFormatted(bool includeHexAndRGB) const;
   std::string getColorAsHex() const;
 
+  const std::string &getColorAsText() const;
+  std::string getColorFormatted() const;
 private:
   std::string colorAsHex;
   std::string colorAsText;
   std::string colorAsRGB_Red;
   std::string colorAsRGB_Green;
   std::string colorAsRGB_Blue;
-  std::string errorMessage;
 
+  std::string errorMessage;
   int convertTextValueToRGBAndHex();
-  const std::string &getColorAsText() const;
-  std::string getColorFormatted() const;
 };
