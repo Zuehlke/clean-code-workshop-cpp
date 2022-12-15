@@ -13,8 +13,13 @@ int squared(const int i)
 } // namespace
 
 Circle::Circle(int x, int y, int radius)
-    : x(x)
-    , y(y)
+    : Circle(Point{x, y}, radius)
+{
+}
+
+Circle::Circle(Point point, int radius)
+    : x(point.x)
+    , y(point.y)
     , radius(radius)
     , color("None")
 {
@@ -75,7 +80,6 @@ double Circle::calculateArea() const
 {
   return radius * radius * PI;
 }
-
 string Circle::toString() const
 {
   return "Circle: (" + to_string(x) + "," + to_string(y) + ") radius= " +
