@@ -1,4 +1,10 @@
 #include "Color.h"
+#include "Circle.h"
+#include "Rectangle.h"
+#include "Shape.h"
+#include <ShapeGroup.h>
+#include <Square.h>
+#include <stdexcept>
 
 using namespace std;
 
@@ -83,4 +89,11 @@ int Color::convertTextValueToRGBAndHex()
     return -1;
   }
   return 0;
+}
+
+std::string Color::getColorAsRGB() const
+{
+  return getColorAsRGBRed() + "," +
+         getColorAsRGBGreen() + "," +
+         getColorAsRGBBlue();
 }

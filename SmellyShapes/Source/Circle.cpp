@@ -1,4 +1,5 @@
 #include "Circle.h"
+#include "Color.h"
 #include "Rectangle.h"
 #include "Shape.h"
 #include <ShapeGroup.h>
@@ -82,9 +83,7 @@ string Circle::toString() const
 {
   return "Circle: (" + to_string(center.x) + "," + to_string(center.y) + ") radius= " +
          to_string(radius) + " RGB=" +
-         color.getColorAsRGBRed() + "," +
-         color.getColorAsRGBGreen() + "," +
-         color.getColorAsRGBBlue();
+         color.getColorAsRGB();
 }
 string Circle::toXml()
 {

@@ -11,6 +11,7 @@ public:
   std::string getColorAsRGBBlue() const;
   std::string getColorAsRGBGreen() const;
   std::string getColorAsRGBRed() const;
+  std::string getColorAsRGB() const;
   std::string getErrorMessage() const;
   std::string getColorAsHex() const;
 
