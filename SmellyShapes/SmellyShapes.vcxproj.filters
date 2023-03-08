@@ -36,10 +36,8 @@
     <ClInclude Include="include\Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\ComplexShape.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\SimpleShape.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

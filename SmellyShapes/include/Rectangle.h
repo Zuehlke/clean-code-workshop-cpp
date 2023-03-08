@@ -1,8 +1,8 @@
 #pragma once
 #include "Color.h"
-#include "SimpleShape.h"
+#include "Shape.h"
 
-class Rectangle : public SimpleShape
+class Rectangle : public Shape
 {
 public:
   Rectangle(int x, int y, int width, int height);

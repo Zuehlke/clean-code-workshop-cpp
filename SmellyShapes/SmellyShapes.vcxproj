@@ -84,12 +84,10 @@
   <ItemGroup>
     <ClInclude Include="include\Circle.h" />
     <ClInclude Include="include\Color.h" />
-    <ClInclude Include="include\ComplexShape.h" />
     <ClInclude Include="include\DrawingBoard.h" />
     <ClInclude Include="include\Rectangle.h" />
     <ClInclude Include="include\Shape.h" />
     <ClInclude Include="include\ShapeGroup.h" />
-    <ClInclude Include="include\SimpleShape.h" />
     <ClInclude Include="include\Square.h" />
   </ItemGroup>
   <ItemGroup>
