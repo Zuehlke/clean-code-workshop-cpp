@@ -21,4 +21,7 @@ public:
 
 private:
   bool readOnly;
+  bool capacityExceeded() const;
+  void increaseCapacity();
+  void insertShape(Shape *shape);
 };

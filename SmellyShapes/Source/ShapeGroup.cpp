@@ -2,7 +2,7 @@
 #include <algorithm>
 
 constexpr int INITIAL_CAPACITY = 10;
-constexpr int CAPACITY_INCREMENT = 10;
+constexpr int CAPACITY_INCREMENT = 11;
 
 ShapeGroup::ShapeGroup()
     : size(0)
@@ -32,26 +32,37 @@ ShapeGroup::~ShapeGroup()
 
 void ShapeGroup::add(Shape *shape)
 {
-  if (!readOnly)
+  if (readOnly)
   {
-    size_t newSize = size + 1;
-    if (newSize > shapes.size())
-    {
-      std::vector<Shape *> newShapes(newSize + CAPACITY_INCREMENT);
-      for (int i = 0; i < size; ++i)
-      {
-        newShapes[i] = shapes[i];
-      }
-      shapes = newShapes;
-    }
-
-    if (contains(shape))
-    {
-      return;
-    }
-    shapes[size++] = shape;
+    return;
   }
+
+  if (contains(shape))
+  {
+    return;
+  }
+
+  if (capacityExceeded())
+  {
+    increaseCapacity();
+  }
+
+  insertShape(shape);
 }
+
+void ShapeGroup::insertShape(Shape *shape) { shapes[size++] = shape; }
+
+void ShapeGroup::increaseCapacity()
+{
+  std::vector<Shape *> newShapes(size + CAPACITY_INCREMENT);
+  for (int i = 0; i < size; ++i)
+  {
+    newShapes[i] = shapes[i];
+  }
+  shapes = std::move(newShapes);
+}
+
+bool ShapeGroup::capacityExceeded() const { return size + 1 > shapes.size(); }
 
 bool ShapeGroup::contains(void *element)
 {
