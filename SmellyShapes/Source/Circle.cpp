@@ -14,14 +14,23 @@ Circle::Circle(int x, int y, int radius)
 {
 }
 
+namespace
+{
+int squared(const int xDistance) { return xDistance * xDistance; }
+}
+
 Circle::~Circle()
 {
 }
 
 bool Circle::contains(int x, int y)
 {
-  bool result = (x - this->x) * (x - this->x) + (y - this->y) * (y - this->y) <= this->radius * this->radius;
-  if (result == true)
+  const auto xDistance = x - this->x;
+  const auto yDistance = y - this->y;
+  const auto squaredDistance = squared(xDistance) + squared(yDistance);
+
+  bool result = squaredDistance <= squared(this->radius);
+  if (result)
   {
     numberOfContainingPoints++;
   }
