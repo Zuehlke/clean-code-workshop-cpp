@@ -34,6 +34,5 @@ private:
   int x;
   int y;
   int radius;
-  int numberOfContainingPoints;
   Color color;
 };

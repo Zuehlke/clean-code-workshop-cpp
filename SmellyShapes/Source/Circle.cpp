@@ -9,7 +9,6 @@ Circle::Circle(int x, int y, int radius)
     : x(x)
     , y(y)
     , radius(radius)
-    , numberOfContainingPoints(0)
     , color("None")
 {
 }
@@ -17,7 +16,7 @@ Circle::Circle(int x, int y, int radius)
 namespace
 {
 int squared(const int xDistance) { return xDistance * xDistance; }
-}
+} // namespace
 
 Circle::~Circle()
 {
@@ -29,20 +28,18 @@ bool Circle::contains(int x, int y)
   const auto yDistance = y - this->y;
   const auto squaredDistance = squared(xDistance) + squared(yDistance);
 
-  bool result = squaredDistance <= squared(this->radius);
-  if (result)
-  {
-    numberOfContainingPoints++;
-  }
-  return result;
+  return squaredDistance <= squared(this->radius);
 }
 
 int Circle::countContainingPoints(int *xCoords, int *yCoords, int size)
 {
-  numberOfContainingPoints = 0;
+  int numberOfContainingPoints = 0;
   for (int i = 0; i < size; ++i)
   {
-    contains(xCoords[i], yCoords[i]);
+    if (contains(xCoords[i], yCoords[i]))
+    {
+      numberOfContainingPoints++;
+    }
   }
 
   return numberOfContainingPoints;
