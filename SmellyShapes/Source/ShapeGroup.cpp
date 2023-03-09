@@ -95,3 +95,16 @@ void ShapeGroup::setReadOnly(bool readOnly)
 {
   this->readOnly = readOnly;
 }
+
+std::string ShapeGroup::toXml()
+{
+  std::string xmlString = "";
+  xmlString.append("<shapegroup>\n");
+  for (int i = 0; i < size; i++)
+  {
+    Shape *shape = shapes[i];
+    xmlString.append(shape->toXml());
+  }
+  xmlString.append("</shapegroup>\n");
+  return xmlString;
+}

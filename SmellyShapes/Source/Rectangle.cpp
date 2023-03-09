@@ -61,3 +61,15 @@ void Rectangle::SetWidth(int width)
 {
   this->width = width;
 }
+
+std::string Rectangle::toXml()
+{
+  std::string xmlString = "";
+  xmlString.append("<rectangle");
+  xmlString.append(" x=\"" + std::to_string(getX()) + "\"");
+  xmlString.append(" y=\"" + std::to_string(getY()) + "\"");
+  xmlString.append(" width=\"" + std::to_string(getWidth()) + "\"");
+  xmlString.append(" height=\"" + std::to_string(getHeight()) + "\"");
+  xmlString.append(" />\n");
+  return xmlString;
+}

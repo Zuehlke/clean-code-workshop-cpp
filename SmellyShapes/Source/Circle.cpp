@@ -83,3 +83,14 @@ string Circle::toString() const
          color.getColorAsRGBGreen() + "," +
          color.getColorAsRGBBlue();
 }
+
+string Circle::toXml()
+{
+  string xmlString = "";
+  xmlString.append("<circle");
+  xmlString.append(" x=\"" + to_string(getX()) + "\"");
+  xmlString.append(" y=\"" + to_string(getY()) + "\"");
+  xmlString.append(" radius=\"" + to_string(getRadius()) + "\"");
+  xmlString.append(" />\n");
+  return xmlString;
+}

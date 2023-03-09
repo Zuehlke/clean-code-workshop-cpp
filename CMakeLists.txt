@@ -19,7 +19,6 @@ set(SOURCE_FILES
         SmellyShapes/Source/Color.cpp
         SmellyShapes/Source/DrawingBoard.cpp
         SmellyShapes/Source/Rectangle.cpp
-        SmellyShapes/Source/Shape.cpp
         SmellyShapes/Source/ShapeGroup.cpp
         SmellyShapes/Source/Square.cpp)
 

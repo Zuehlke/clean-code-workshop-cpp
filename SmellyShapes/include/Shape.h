@@ -6,7 +6,7 @@ class Shape
 public:
   virtual ~Shape() {}
   virtual bool contains(int x, int y) = 0;
-  std::string toXml();
+  virtual std::string toXml() = 0;
 
 protected:
   Shape() {}
