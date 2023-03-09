@@ -25,20 +25,20 @@ TEST(ColorTest, GetErrorMessage_Cyan)
 TEST(ColorTest, GetColorFormatted_Red)
 {
   auto color = Color("Red");
-  auto colorFormatted = color.getColorFormatted(false);
+  auto colorFormatted = color.getColorAsText();
   ASSERT_STREQ("Red", colorFormatted.c_str());
 }
 
 TEST(ColorTest, GetColorFormatted_Green)
 {
   auto color = Color("Green");
-  auto colorFormatted = color.getColorFormatted(false);
+  auto colorFormatted = color.getColorAsText();
   ASSERT_STREQ("Green", colorFormatted.c_str());
 }
 
 TEST(ColorTest, GetColorFormatted_Red_Incl)
 {
   Color c("Red");
-  std::string formattedColor = c.getColorFormatted(true);
+  std::string formattedColor = c.getColorWithHexAndRGB();
   ASSERT_STREQ("Red #FF0000 255:0:0", formattedColor.c_str());
 }

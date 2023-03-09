@@ -40,14 +40,11 @@ string Color::getErrorMessage() const
   return errorMessage;
 }
 
-string Color::getColorFormatted(bool includeHexAndRGB) const
-{
-  if (includeHexAndRGB)
-  {
-    return colorAsText + " " + colorAsHex + " " + colorAsRGB_Red + ":" + colorAsRGB_Green + ":" + colorAsRGB_Blue;
-  }
+const string &Color::getColorAsText() const { return colorAsText; }
 
-  return colorAsText;
+string Color::getColorWithHexAndRGB() const
+{
+  return colorAsText + " " + colorAsHex + " " + colorAsRGB_Red + ":" + colorAsRGB_Green + ":" + colorAsRGB_Blue;
 }
 
 string Color::getColorAsHex() const
