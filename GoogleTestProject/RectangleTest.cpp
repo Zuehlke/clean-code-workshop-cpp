@@ -1,4 +1,5 @@
 #include "../SmellyShapes/include/Rectangle.h"
+#include "Rectangle.h"
 #include "pch.h"
 
 class RectangleTest : public ::testing::Test
@@ -17,14 +18,14 @@ protected:
 
 TEST_F(RectangleTest, Contains)
 {
-  ASSERT_TRUE(rectangle.contains(0, 0));
-  ASSERT_TRUE(rectangle.contains(1, 0));
-  ASSERT_TRUE(rectangle.contains(1, 1));
-  ASSERT_TRUE(rectangle.contains(2, 1));
+  ASSERT_TRUE(rectangle.containsPoint(Point{0, 0}));
+  ASSERT_TRUE(rectangle.containsPoint(Point{1, 0}));
+  ASSERT_TRUE(rectangle.containsPoint(Point{1, 1}));
+  ASSERT_TRUE(rectangle.containsPoint(Point{2, 1}));
 
-  ASSERT_FALSE(rectangle.contains(2, 2));
-  ASSERT_FALSE(rectangle.contains(-1, 0));
-  ASSERT_FALSE(rectangle.contains(0, -1));
+  ASSERT_FALSE(rectangle.containsPoint(Point{2, 2}));
+  ASSERT_FALSE(rectangle.containsPoint(Point{-1, 0}));
+  ASSERT_FALSE(rectangle.containsPoint(Point{0, -1}));
 }
 
 TEST_F(RectangleTest, CalculateArea)

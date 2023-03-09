@@ -5,9 +5,8 @@
 
 using namespace std;
 
-Circle::Circle(int x, int y, int radius)
-    : x(x)
-    , y(y)
+Circle::Circle(Point center, int radius)
+    : center(center)
     , radius(radius)
     , color("None")
 {
@@ -22,21 +21,12 @@ Circle::~Circle()
 {
 }
 
-bool Circle::contains(int x, int y)
-{
-  const auto xDistance = x - this->x;
-  const auto yDistance = y - this->y;
-  const auto squaredDistance = squared(xDistance) + squared(yDistance);
-
-  return squaredDistance <= squared(this->radius);
-}
-
 int Circle::countContainingPoints(int *xCoords, int *yCoords, int size)
 {
   int numberOfContainingPoints = 0;
   for (int i = 0; i < size; ++i)
   {
-    if (contains(xCoords[i], yCoords[i]))
+    if (containsPoint(Point{xCoords[i], yCoords[i]}))
     {
       numberOfContainingPoints++;
     }
@@ -57,12 +47,12 @@ void Circle::setColor(Color color)
 
 int Circle::getX() const
 {
-  return x;
+  return center.x;
 }
 
 int Circle::getY() const
 {
-  return y;
+  return center.y;
 }
 
 int Circle::getRadius() const
@@ -77,7 +67,7 @@ double Circle::calculateArea() const
 
 string Circle::toString() const
 {
-  return "Circle: (" + to_string(x) + "," + to_string(y) + ") radius= " +
+  return "Circle: (" + to_string(center.x) + "," + to_string(center.y) + ") radius= " +
          to_string(radius) + " RGB=" +
          color.getColorAsRGBRed() + "," +
          color.getColorAsRGBGreen() + "," +
@@ -93,4 +83,12 @@ string Circle::toXml()
   xmlString.append(" radius=\"" + to_string(getRadius()) + "\"");
   xmlString.append(" />\n");
   return xmlString;
+}
+bool Circle::containsPoint(Point point)
+{
+  const auto xDistance = point.x - center.x;
+  const auto yDistance = point.y - center.y;
+  const auto squaredDistance = squared(xDistance) + squared(yDistance);
+
+  return squaredDistance <= squared(radius);
 }

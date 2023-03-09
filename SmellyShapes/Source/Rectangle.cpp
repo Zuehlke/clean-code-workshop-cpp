@@ -40,11 +40,6 @@ int Rectangle::getX()
   return x;
 }
 
-bool Rectangle::contains(int x, int y)
-{
-  return getX() <= x && x <= getX() + getWidth() && getY() <= y && y <= getY() + getHeight();
-}
-
 int Rectangle::calculateArea()
 {
   return getWidth() * getHeight();
@@ -72,4 +67,9 @@ std::string Rectangle::toXml()
   xmlString.append(" height=\"" + std::to_string(getHeight()) + "\"");
   xmlString.append(" />\n");
   return xmlString;
+}
+
+bool Rectangle::containsPoint(Point point)
+{
+  return getX() <= point.x && point.x <= getX() + getWidth() && getY() <= point.y && point.y <= getY() + getHeight();
 }

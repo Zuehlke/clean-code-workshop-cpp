@@ -1,6 +1,7 @@
 #include "../SmellyShapes/include/Circle.h"
 #include "pch.h"
 #define _USE_MATH_DEFINES
+#include "Rectangle.h"
 #include "math.h"
 
 class CircleTest : public ::testing::Test
@@ -9,7 +10,7 @@ protected:
   Circle circle;
 
   CircleTest()
-      : circle(0, 0, 1)
+      : circle(Point{0, 0}, 1)
   {
   }
 
@@ -23,14 +24,14 @@ protected:
 
 TEST_F(CircleTest, Contains)
 {
-  ASSERT_TRUE(circle.contains(0, 0));
-  ASSERT_TRUE(circle.contains(0, 1));
-  ASSERT_TRUE(circle.contains(1, 0));
+  ASSERT_TRUE(circle.containsPoint(Point{0, 0}));
+  ASSERT_TRUE(circle.containsPoint(Point{0, 1}));
+  ASSERT_TRUE(circle.containsPoint(Point{1, 0}));
 
-  ASSERT_FALSE(circle.contains(1, 1));
-  ASSERT_FALSE(circle.contains(-1, -1));
-  ASSERT_FALSE(circle.contains(1, -1));
-  ASSERT_FALSE(circle.contains(-1, 1));
+  ASSERT_FALSE(circle.containsPoint(Point{1, 1}));
+  ASSERT_FALSE(circle.containsPoint(Point{-1, -1}));
+  ASSERT_FALSE(circle.containsPoint(Point{1, -1}));
+  ASSERT_FALSE(circle.containsPoint(Point{-1, 1}));
 }
 
 TEST_F(CircleTest, CountContainingPoints)
@@ -63,6 +64,6 @@ TEST_F(CircleTest, calculateArea)
 TEST_F(CircleTest, calculateArea2)
 {
   double expected = 289 * M_PI;
-  double actual = Circle(1, 2, 17).calculateArea();
+  double actual = Circle(Point{1, 2}, 17).calculateArea();
   ASSERT_NEAR(expected, actual, 1.0f);
 }

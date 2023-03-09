@@ -1,11 +1,14 @@
 #pragma once
+#include "Point.h"
 #include <string>
 
 class Shape
 {
 public:
   virtual ~Shape() {}
-  virtual bool contains(int x, int y) = 0;
+
+  virtual bool containsPoint(Point point) = 0;
+
   virtual std::string toXml() = 0;
 
 protected:

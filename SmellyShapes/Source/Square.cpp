@@ -1,4 +1,5 @@
 #include "Square.h"
+#include "Rectangle.h"
 #include <stdexcept>
 
 using namespace std;
@@ -42,7 +43,7 @@ std::string Square::ToString()
 
 bool Square::ContainsLine(int x1, int y1, int x2, int y2)
 {
-  return contains(x1, y1) && contains(x2, y2);
+  return containsPoint({x1, y1}) && containsPoint({x2, y2});
 }
 
 string Square::toXml()

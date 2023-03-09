@@ -1,5 +1,6 @@
 #pragma once
 #include "Color.h"
+#include "Point.h"
 #include "Shape.h"
 #include <string>
 
@@ -14,12 +15,18 @@ public:
   int getWidth();
   virtual int getHeight();
   void getDimensions(int &width, int &height);
-  bool contains(int x, int y) override;
   virtual int calculateArea();
   std::string toString();
 
   std::string toXml() override;
 
+  bool containsPoint(Point point) override;
+
+  //  bool contains(int x, int y)
+  //  {
+  //    return containsPoint(Point{x, y});
+  //  }
+  //
 private:
   int x;
   int y;

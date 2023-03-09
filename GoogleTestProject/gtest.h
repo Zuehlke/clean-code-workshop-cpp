@@ -2442,7 +2442,7 @@ GTEST_API_ bool IsTrue(bool condition);
 
 // Defines scoped_ptr.
 
-// This implementation of scoped_ptr is PARTIAL - it only contains
+// This implementation of scoped_ptr is PARTIAL - it only containsPoint
 // enough stuff to satisfy Google Test's need.
 template <typename T>
 class scoped_ptr {
@@ -2517,7 +2517,7 @@ class GTEST_API_ RE {
   // matches a substring of str (including str itself).
   //
   // FIXME: make FullMatch() and PartialMatch() work
-  // when str contains NUL characters.
+  // when str containsPoint NUL characters.
   static bool FullMatch(const ::std::string& str, const RE& re) {
     return FullMatch(str.c_str(), re);
   }
@@ -3339,7 +3339,7 @@ class MutexBase {
   // have to be public.
  public:
   pthread_mutex_t mutex_;  // The underlying pthread mutex.
-  // has_owner_ indicates whether the owner_ field below contains a valid thread
+  // has_owner_ indicates whether the owner_ field below containsPoint a valid thread
   // ID and is therefore safe to inspect (e.g., to use in pthread_equal()). All
   // accesses to the owner_ field should be protected by a check of this field.
   // An alternative might be to memset() owner_ to all zeros, but there's no
@@ -8482,7 +8482,7 @@ inline const char* SkipComma(const char* str) {
 }
 
 // Returns the prefix of 'str' before the first comma in it; returns
-// the entire string if it contains no comma.
+// the entire string if it containsPoint no comma.
 inline std::string GetPrefixUntilComma(const char* str) {
   const char* comma = strchr(str, ',');
   return comma == NULL ? str : std::string(str, comma);
@@ -8853,7 +8853,7 @@ template <class C>
 IsNotContainer IsContainerTest(long /* dummy */) { return '\0'; }
 
 // Trait to detect whether a type T is a hash table.
-// The heuristic used is that the type contains an inner type `hasher` and does
+// The heuristic used is that the type containsPoint an inner type `hasher` and does
 // not contain an inner type `reverse_iterator`.
 // If the container is iterable in reverse, then order might actually matter.
 template <typename T>
@@ -9650,7 +9650,7 @@ GTEST_API_ bool InDeathTestChild();
 //   program from argv[0] and re-executes it in the sub-process.  For
 //   simplicity, the current implementation doesn't search the PATH
 //   when launching the sub-process.  This means that the user must
-//   invoke the test program via a path that contains at least one
+//   invoke the test program via a path that containsPoint at least one
 //   path separator (e.g. path/to/foo_test and
 //   /absolute/path/to/bar_test are fine, but foo_test is not).  This
 //   is rarely a problem as people usually don't put the test binary
@@ -10568,7 +10568,7 @@ template <typename T>
 void DefaultPrintNonContainerTo(const T& value, ::std::ostream* os) {
   // With the following statement, during unqualified name lookup,
   // testing::internal2::operator<< appears as if it was declared in
-  // the nearest enclosing namespace that contains both
+  // the nearest enclosing namespace that containsPoint both
   // ::testing_internal and ::testing::internal2, i.e. the global
   // namespace.  For more details, refer to the C++ Standard section
   // 7.3.4-1 [namespace.udir].  This allows us to fall back onto
@@ -12064,7 +12064,7 @@ class ParameterizedTestCaseInfo : public ParameterizedTestCaseInfoBase {
 
 // INTERNAL IMPLEMENTATION - DO NOT USE IN USER CODE.
 //
-// ParameterizedTestCaseRegistry contains a map of ParameterizedTestCaseInfoBase
+// ParameterizedTestCaseRegistry containsPoint a map of ParameterizedTestCaseInfoBase
 // classes accessed by test case names. TEST_P and INSTANTIATE_TEST_CASE_P
 // macros use it to locate their corresponding ParameterizedTestCaseInfo
 // descriptors.
@@ -19227,7 +19227,7 @@ class FooTest : public testing::Test {
 typedef testing::Types<char, int, unsigned int> MyTypes;
 TYPED_TEST_CASE(FooTest, MyTypes);
 
-// If the type list contains only one type, you can write that type
+// If the type list containsPoint only one type, you can write that type
 // directly without Types<...>:
 //   TYPED_TEST_CASE(FooTest, int);
 
@@ -19328,7 +19328,7 @@ REGISTER_TYPED_TEST_CASE_P(FooTest,
 typedef testing::Types<char, int, unsigned int> MyTypes;
 INSTANTIATE_TYPED_TEST_CASE_P(My, FooTest, MyTypes);
 
-// If the type list contains only one type, you can write that type
+// If the type list containsPoint only one type, you can write that type
 // directly without Types<...>:
 //   INSTANTIATE_TYPED_TEST_CASE_P(My, FooTest, int);
 //
@@ -20148,8 +20148,8 @@ namespace testing {
 
 // The abstract class that all tests inherit from.
 //
-// In Google Test, a unit test program contains one or many TestCases, and
-// each TestCase contains one or many Tests.
+// In Google Test, a unit test program containsPoint one or many TestCases, and
+// each TestCase containsPoint one or many Tests.
 //
 // When you define a test using the TEST macro, you don't need to
 // explicitly derive from Test - the TEST macro automatically does
@@ -20494,7 +20494,7 @@ class GTEST_API_ TestInfo {
   // the negative patterns.
   //
   // For example, *A*:Foo.* is a filter that matches any string that
-  // contains the character 'A' or starts with "Foo.".
+  // containsPoint the character 'A' or starts with "Foo.".
   bool should_run() const { return should_run_; }
 
   // Returns true iff this test will appear in the XML report.
@@ -21091,7 +21091,7 @@ class GTEST_API_ UnitTest {
   // Adds a TestProperty to the current TestResult object when invoked from
   // inside a test, to current TestCase's ad_hoc_test_result_ when invoked
   // from SetUpTestCase or TearDownTestCase, or to the global property set
-  // when invoked elsewhere.  If the result already contains a property with
+  // when invoked elsewhere.  If the result already containsPoint a property with
   // the same key, the value will be updated.
   void RecordProperty(const std::string& key, const std::string& value);
 

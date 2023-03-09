@@ -1,4 +1,5 @@
 #include "ShapeGroup.h"
+#include "Rectangle.h"
 #include <algorithm>
 
 constexpr int INITIAL_CAPACITY = 10;
@@ -46,12 +47,6 @@ bool ShapeGroup::contains(void *element)
                      { return shape.get() == element; });
 }
 
-bool ShapeGroup::contains(int x, int y)
-{
-  return std::any_of(newShapes.begin(), newShapes.end(), [x, y](auto const &shape)
-                     { return shape->contains(x, y); });
-}
-
 void ShapeGroup::setReadOnly(bool readOnly)
 {
   this->readOnly = readOnly;
@@ -80,3 +75,14 @@ std::vector<std::unique_ptr<Shape>> const &ShapeGroup::getShapes() const
 {
   return newShapes;
 }
+
+bool ShapeGroup::containsPoint(Point point)
+{
+  int x;
+  int y;
+  bool result;
+  return std::any_of(newShapes.begin(), newShapes.end(), [point](auto const &shape)
+                     { return shape->containsPoint(point); });
+}
+
+;

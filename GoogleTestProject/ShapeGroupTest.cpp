@@ -1,6 +1,7 @@
 #include "../SmellyShapes/include/ShapeGroup.h"
 #include "../SmellyShapes/include/Circle.h"
 #include "../SmellyShapes/include/Rectangle.h"
+#include "Rectangle.h"
 #include "pch.h"
 
 TEST(ShapeGroupTest, ToXml)
@@ -18,7 +19,7 @@ TEST(ShapeGroupTest, ToXml)
 
 TEST(ShapeGroupTest, Constructor_WithShapeArray)
 {
-  std::vector<Shape *> shapes{new Circle(0, 0, 0)};
+  std::vector<Shape *> shapes{new Circle(Point{0, 0}, 0)};
   ShapeGroup shapeGroup(shapes, true);
 
   ASSERT_EQ(1, shapeGroup.getSize());
@@ -29,7 +30,7 @@ TEST(ShapeGroupTest, Add_WithReadOnly)
   ShapeGroup shapeGroup;
   shapeGroup.setReadOnly(true);
 
-  shapeGroup.add(new Circle(0, 0, 0));
+  shapeGroup.add(new Circle(Point{0, 0}, 0));
 
   ASSERT_EQ(0, shapeGroup.getSize());
 }
@@ -39,7 +40,7 @@ TEST(ShapeGroupTest, Add_WithoutReadOnly)
   ShapeGroup shapeGroup;
   shapeGroup.setReadOnly(false);
 
-  shapeGroup.add(new Circle(0, 0, 0));
+  shapeGroup.add(new Circle(Point{0, 0}, 0));
 
   ASSERT_EQ(1, shapeGroup.getSize());
 }
@@ -49,7 +50,7 @@ TEST(ShapeGroupTest, Add_SameElementTwice)
   ShapeGroup shapeGroup;
   shapeGroup.setReadOnly(false);
 
-  auto circle = new Circle(0, 0, 0);
+  auto circle = new Circle(Point{0, 0}, 0);
   shapeGroup.add(circle);
   shapeGroup.add(circle);
 
@@ -61,8 +62,8 @@ TEST(ShapeGroupTest, Add_TwoSimilarElements)
   ShapeGroup shapeGroup;
   shapeGroup.setReadOnly(false);
 
-  Circle *circle1 = new Circle(0, 0, 0);
-  Circle *circle2 = new Circle(0, 0, 0);
+  Circle *circle1 = new Circle(Point{0, 0}, 0);
+  Circle *circle2 = new Circle(Point{0, 0}, 0);
   shapeGroup.add(circle1);
   shapeGroup.add(circle2);
 
@@ -76,7 +77,7 @@ TEST(ShapeGroupTest, Add_InternalArraySizeExceeded)
 
   for (int i = 0; i < 11; i++)
   {
-    auto circle = new Circle(0, 0, 0);
+    auto circle = new Circle(Point{0, 0}, 0);
     shapeGroup.add(circle);
   }
 
@@ -87,29 +88,29 @@ TEST(ShapeGroupTest, Contains_PointNotInGroup)
 {
   ShapeGroup shapeGroup;
 
-  ASSERT_FALSE(shapeGroup.contains(0, 0));
+  ASSERT_FALSE(shapeGroup.containsPoint(Point{0, 0}));
 }
 
 TEST(ShapeGroupTest, Contains_PointInGroup)
 {
   ShapeGroup shapeGroup;
-  auto circle = new Circle(0, 0, 0);
+  auto circle = new Circle(Point{0, 0}, 0);
   shapeGroup.add(circle);
 
-  ASSERT_TRUE(shapeGroup.contains(0, 0));
+  ASSERT_TRUE(shapeGroup.containsPoint(Point{0, 0}));
 }
 
 TEST(ShapeGroupTest, Contains_Null)
 {
   ShapeGroup shapeGroup;
 
-  ASSERT_FALSE(shapeGroup.contains(NULL));
+  ASSERT_FALSE(shapeGroup.contains(nullptr));
 }
 
 TEST(ShapeGroupTest, Contains_ShapeInGroup)
 {
   ShapeGroup shapeGroup;
-  Circle *c = new Circle(0, 0, 0);
+  Circle *c = new Circle(Point{0, 0}, 0);
   shapeGroup.add(c);
 
   ASSERT_TRUE(shapeGroup.contains(c));

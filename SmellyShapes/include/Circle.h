@@ -1,5 +1,6 @@
 #pragma once
 #include "Color.h"
+#include "Point.h"
 #include "Shape.h"
 #include <string>
 #include <vector>
@@ -7,10 +8,10 @@
 class Circle : public Shape
 {
 public:
-  Circle(int x, int y, int radius);
+  Circle(Point center, int radius);
   virtual ~Circle();
 
-  bool contains(int x, int y);
+  bool containsPoint(Point point) override;
   int countContainingPoints(int *xCoords, int *yCoords, int size);
 
   /*!
@@ -34,8 +35,8 @@ public:
   std::string toXml() override;
 
 private:
-  int x;
-  int y;
+  Point center;
+
   int radius;
   Color color;
 };

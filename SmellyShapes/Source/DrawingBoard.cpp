@@ -5,7 +5,7 @@
 DrawingBoard::DrawingBoard()
     : backgroundColor("White")
 {
-  add(new Circle(5, 6, 7));
+  add(new Circle(Point{5, 6}, 7));
   add(new Rectangle(1, 1, 20, 20));
 }
 
