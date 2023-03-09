@@ -5,29 +5,19 @@ constexpr int INITIAL_CAPACITY = 10;
 constexpr int CAPACITY_INCREMENT = 11;
 
 ShapeGroup::ShapeGroup()
-    : size(0)
-    , readOnly(false)
+    : readOnly(false)
 {
-  shapes.resize(INITIAL_CAPACITY, nullptr);
 }
 
 ShapeGroup::ShapeGroup(std::vector<Shape *> &shapes, bool readOnly)
     : readOnly(readOnly)
-    , size(shapes.size())
 {
-  for (std::vector<Shape *>::iterator it = shapes.begin(); it != shapes.end(); ++it)
+  for (auto shape : shapes)
   {
-    this->shapes.push_back(*it);
+    newShapes.emplace_back(shape);
   }
-  shapes.clear();
-}
 
-ShapeGroup::~ShapeGroup()
-{
-  for (std::vector<Shape *>::iterator it = shapes.begin(); it != shapes.end(); ++it)
-  {
-    delete *it;
-  }
+  shapes.clear();
 }
 
 void ShapeGroup::add(Shape *shape)
@@ -42,53 +32,24 @@ void ShapeGroup::add(Shape *shape)
     return;
   }
 
-  if (capacityExceeded())
-  {
-    increaseCapacity();
-  }
-
   insertShape(shape);
 }
 
-void ShapeGroup::insertShape(Shape *shape) { shapes[size++] = shape; }
-
-void ShapeGroup::increaseCapacity()
+void ShapeGroup::insertShape(Shape *shape)
 {
-  std::vector<Shape *> newShapes(size + CAPACITY_INCREMENT);
-  for (int i = 0; i < size; ++i)
-  {
-    newShapes[i] = shapes[i];
-  }
-  shapes = std::move(newShapes);
+  newShapes.emplace_back(shape);
 }
-
-bool ShapeGroup::capacityExceeded() const { return size + 1 > shapes.size(); }
 
 bool ShapeGroup::contains(void *element)
 {
-  for (int i = 0; i < size; ++i)
-  {
-    if (shapes[i] == element)
-    {
-      return true;
-    }
-  }
-
-  return false;
+  return std::any_of(newShapes.begin(), newShapes.end(), [element](auto const &shape)
+                     { return shape.get() == element; });
 }
 
 bool ShapeGroup::contains(int x, int y)
 {
-  for (int i = 0; i < size; ++i)
-  {
-    Shape *shape = shapes[i];
-    if (shape != NULL && shape->contains(x, y))
-    {
-      return true;
-    }
-  }
-
-  return false;
+  return std::any_of(newShapes.begin(), newShapes.end(), [x, y](auto const &shape)
+                     { return shape->contains(x, y); });
 }
 
 void ShapeGroup::setReadOnly(bool readOnly)
@@ -100,11 +61,22 @@ std::string ShapeGroup::toXml()
 {
   std::string xmlString = "";
   xmlString.append("<shapegroup>\n");
-  for (int i = 0; i < size; i++)
+
+  for (auto const &shape : newShapes)
   {
-    Shape *shape = shapes[i];
     xmlString.append(shape->toXml());
   }
+
   xmlString.append("</shapegroup>\n");
   return xmlString;
+}
+
+std::size_t ShapeGroup::getSize() const
+{
+  return newShapes.size();
+}
+
+std::vector<std::unique_ptr<Shape>> const &ShapeGroup::getShapes() const
+{
+  return newShapes;
 }

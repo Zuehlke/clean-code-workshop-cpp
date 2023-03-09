@@ -21,7 +21,7 @@ void DrawingBoard::setBackgroundColor(Color backgroundColor)
 
 void DrawingBoard::drawOnScreen()
 {
-  for (auto shape : shapeGroup.shapes)
+  for (auto const &shape : shapeGroup.getShapes())
   {
     // draw shape on screen
   }

@@ -21,7 +21,7 @@ TEST(ShapeGroupTest, Constructor_WithShapeArray)
   std::vector<Shape *> shapes{new Circle(0, 0, 0)};
   ShapeGroup shapeGroup(shapes, true);
 
-  ASSERT_EQ(1, shapeGroup.size);
+  ASSERT_EQ(1, shapeGroup.getSize());
 }
 
 TEST(ShapeGroupTest, Add_WithReadOnly)
@@ -31,7 +31,7 @@ TEST(ShapeGroupTest, Add_WithReadOnly)
 
   shapeGroup.add(new Circle(0, 0, 0));
 
-  ASSERT_EQ(0, shapeGroup.size);
+  ASSERT_EQ(0, shapeGroup.getSize());
 }
 
 TEST(ShapeGroupTest, Add_WithoutReadOnly)
@@ -41,7 +41,7 @@ TEST(ShapeGroupTest, Add_WithoutReadOnly)
 
   shapeGroup.add(new Circle(0, 0, 0));
 
-  ASSERT_EQ(1, shapeGroup.size);
+  ASSERT_EQ(1, shapeGroup.getSize());
 }
 
 TEST(ShapeGroupTest, Add_SameElementTwice)
@@ -53,7 +53,7 @@ TEST(ShapeGroupTest, Add_SameElementTwice)
   shapeGroup.add(circle);
   shapeGroup.add(circle);
 
-  ASSERT_EQ(1, shapeGroup.size);
+  ASSERT_EQ(1, shapeGroup.getSize());
 }
 
 TEST(ShapeGroupTest, Add_TwoSimilarElements)
@@ -66,7 +66,7 @@ TEST(ShapeGroupTest, Add_TwoSimilarElements)
   shapeGroup.add(circle1);
   shapeGroup.add(circle2);
 
-  ASSERT_EQ(2, shapeGroup.size);
+  ASSERT_EQ(2, shapeGroup.getSize());
 }
 
 TEST(ShapeGroupTest, Add_InternalArraySizeExceeded)
@@ -80,7 +80,7 @@ TEST(ShapeGroupTest, Add_InternalArraySizeExceeded)
     shapeGroup.add(circle);
   }
 
-  ASSERT_EQ(11, shapeGroup.size);
+  ASSERT_EQ(11, shapeGroup.getSize());
 }
 
 TEST(ShapeGroupTest, Contains_PointNotInGroup)

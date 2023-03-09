@@ -10,21 +10,18 @@ public:
   ShapeGroup();
   ShapeGroup(const ShapeGroup &);
   ShapeGroup(std::vector<Shape *> &shapes, bool readOnly);
-  virtual ~ShapeGroup();
 
   void add(Shape *shape);
   bool contains(void *element);
   virtual bool contains(int x, int y) override;
   void setReadOnly(bool readOnly);
-
-  std::vector<Shape *> shapes;
-  int size;
-
   std::string toXml() override;
 
+  std::size_t getSize() const;
+  std::vector<std::unique_ptr<Shape>> const &getShapes() const;
+
 private:
+  std::vector<std::unique_ptr<Shape>> newShapes;
   bool readOnly;
-  bool capacityExceeded() const;
-  void increaseCapacity();
   void insertShape(Shape *shape);
 };
