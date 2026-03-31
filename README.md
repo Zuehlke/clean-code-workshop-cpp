@@ -6,9 +6,13 @@ This is the C++ version of Smelly Shapes that belong to the [Clean Code Course](
 
 Successfully tested with versions:
 
-- 2020-2022
+- 2020-2026
 
-### Visual Studio 2017/2019
+### Visual Studio
+
+Successfully tested with versions:
+
+- 2017-2026
 
 See the [Visual Studio installer configuration](./.vsconfig). 
 
@@ -24,6 +28,8 @@ There is a trial period available so there is no need to buy the extension just 
 
 ![Configuration step 2](Resharper2.png)
 
+Then execute the downloaded installer:
+
 ![Configuration step 3](Resharper3.png)
 
 ## References
@@ -32,4 +38,5 @@ C# Version here
 https://github.com/zuehlke/clean-code-workshop-csharp
 
 Java version here
-https://github.com/Zuehlke/clean-code-workshop/tree/master/smelly-shapes-java
+https://codehub.zuehlke.com/clean-code/clean-code-codebase-java
+
