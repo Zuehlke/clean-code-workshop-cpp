@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 project(smelly_shapes_cpp)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
 
 include_directories(GoogleTestProject)
 include_directories(SmellyShapes/include)
