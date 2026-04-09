@@ -49,9 +49,9 @@ std::string Square::toXml()
 {
   std::string xmlString = "";
   xmlString.append("<square");
-  xmlString.append(" x=\"" + std::__cxx11::to_string(this->getX()) + "\"");
-  xmlString.append(" y=\"" + std::__cxx11::to_string(this->getY()) + "\"");
-  xmlString.append(" edgeLength=\"" + std::__cxx11::to_string(this->getWidth()) + "\"");
+  xmlString.append(" x=\"" + std::to_string(this->getX()) + "\"");
+  xmlString.append(" y=\"" + std::to_string(this->getY()) + "\"");
+  xmlString.append(" edgeLength=\"" + std::to_string(this->getWidth()) + "\"");
   xmlString.append(" />\n");
   return xmlString;
 }

@@ -66,10 +66,10 @@ std::string Rectangle::toXml()
 {
   std::string xmlString = "";
   xmlString.append("<rectangle");
-  xmlString.append(" x=\"" + std::__cxx11::to_string(this->getX()) + "\"");
-  xmlString.append(" y=\"" + std::__cxx11::to_string(this->getY()) + "\"");
-  xmlString.append(" width=\"" + std::__cxx11::to_string(this->getWidth()) + "\"");
-  xmlString.append(" height=\"" + std::__cxx11::to_string(this->getHeight()) + "\"");
+  xmlString.append(" x=\"" + std::to_string(this->getX()) + "\"");
+  xmlString.append(" y=\"" + std::to_string(this->getY()) + "\"");
+  xmlString.append(" width=\"" + std::to_string(this->getWidth()) + "\"");
+  xmlString.append(" height=\"" + std::to_string(this->getHeight()) + "\"");
   xmlString.append(" />\n");
   return xmlString;
 }
